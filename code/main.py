@@ -1,12 +1,14 @@
 from logging import captureWarnings
-import pygame, sys
+import pygame
+import sys
 from settings import *
 from level import Level
+
 
 class Game:
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+        self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption('Stardew Valley')
         self.clock = pygame.time.Clock()
         self.level = Level()
@@ -18,10 +20,10 @@ class Game:
                     pygame.quit()
                     sys.exit()
 
-                # setup framerate
-                dt = self.clock.tick() / 1000
-                self.level.run(dt)
-                pygame.display.update()
+            dt = self.clock.tick() / 1000
+            self.level.run(dt)
+            pygame.display.update()
+
 
 if __name__ == '__main__':
     game = Game()
